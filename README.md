@@ -1,1 +1,1 @@
-# Namma-Class
+Namma Class - Self-learning app for Classes 1
