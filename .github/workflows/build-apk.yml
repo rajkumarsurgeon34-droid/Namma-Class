@@ -34,6 +34,10 @@
           "run": "gradle assembleDebug"
         },
         {
+          "name": "Check MainActivity is inside the APK",
+          "run": "unzip -p app/build/outputs/apk/debug/app-debug.apk 'classes*.dex' | grep -a -q 'Lin/shazverse/nammaclass/MainActivity;' || { echo 'ERROR: MainActivity missing from APK - app will not open'; exit 1; }"
+        },
+        {
           "name": "Upload APK",
           "uses": "actions/upload-artifact@v4",
           "with": {
