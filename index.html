@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff7e8">
+  <title>Namma Class — Self-Learning for Classes 1–12</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">✿</span><span>Namma<span class="accent">Class</span><small>LEARN • PLAY • GROW</small></span></a>
+  <label class="class-picker">CLASS
+    <select id="classSelect" aria-label="Choose class">
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+      <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+      <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+    </select>
+  </label>
+  <button id="soundToggle" class="round" aria-label="Toggle read aloud">🔊</button>
+</header>
+<main>
+  <section class="hero">
+    <div><p class="eyebrow">YOUR LITTLE LEARNING COMPANION</p>
+      <h1>Big ideas.<br><span>Little steps.</span></h1>
+      <p>Explore school subjects, listen to lessons and practise with fun quizzes every day.</p>
+      <button class="primary" id="startLearning">Let's learn! →</button>
+    </div>
+    <div class="hero-art" aria-label="Books and sunshine"><div class="sun">☀️</div><div class="books"><b>ABC</b><b>123</b><b>அ ஆ இ</b></div><div class="bubble">You can do it!</div></div>
+  </section>
+  <section class="section" id="subjects">
+    <div class="section-heading"><div><p class="eyebrow">PICK YOUR ADVENTURE</p><h2>What shall we learn today?</h2></div><span class="sticker">✨ Learn at your own pace</span></div>
+    <div class="subject-grid">
+      <button class="subject-card tamil" data-subject="Tamil"><span class="subject-icon">அ</span><b>Tamil</b><small>தமிழ் • Letters & words</small></button>
+      <button class="subject-card english" data-subject="English"><span class="subject-icon">ABC</span><b>English</b><small>Letters, words & stories</small></button>
+      <button class="subject-card maths" data-subject="Mathematics"><span class="subject-icon">123</span><b>Mathematics</b><small>Numbers, shapes & fun</small></button>
+      <button class="subject-card evs" data-subject="Environmental Science"><span class="subject-icon">🌱</span><b>EVS</b><small>Our world & nature</small></button>
+    </div>
+  </section>
+  <section class="lesson section" id="lessonArea">
+    <div class="section-heading"><div><p class="eyebrow">TODAY'S MINI LESSON</p><h2 id="lessonTitle">Let's start learning!</h2></div><span class="sticker">5-minute lesson</span></div>
+    <div id="lessonContent" class="lesson-content"><div class="visual">🍎 🍎 🍎</div><h3>Counting is everywhere!</h3><p>We use numbers to count toys, fruits, steps and friends.</p></div>
+    <div class="actions"><button class="secondary" id="readLesson">🔊 Read this lesson</button><button class="primary" id="quizButton">Try a quick quiz →</button><button class="secondary" id="completeLesson">✓ Mark lesson complete</button></div>
+  </section>
+  <section class="section games">
+    <div class="section-heading"><div><p class="eyebrow">PLAY & LEARN</p><h2>🎮 Learning games</h2></div></div>
+    <div class="game-grid">
+      <article class="game-card"><div class="game-icon">🔢</div><h3>Number Pop!</h3><p>Count the stars and pick the right number.</p><div id="numberGame"><button class="secondary" id="startNumberGame">▶ Play now</button></div></article>
+      <article class="game-card"><div class="game-icon">🧠</div><h3>Match the Pairs</h3><p>Find two matching pictures.</p><div id="memoryGame"><button class="secondary" id="startMemoryGame">▶ Play now</button></div></article>
+      <article class="game-card"><div class="game-icon">🌿</div><h3>Nature Sort</h3><p>Choose living and non-living things.</p><div id="natureGame"><button class="secondary" id="startNatureGame">▶ Play now</button></div></article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-heading"><div><p class="eyebrow">MY LEARNING JOURNEY</p><h2>My progress</h2></div></div>
+    <div class="progress-card"><b id="progressCount">0 lessons completed</b><div class="progress-track"><span id="progressBar"></span></div><p id="progressMessage">Complete a lesson to start your learning journey.</p><div id="completedLessons"></div><button id="resetProgress" class="secondary">Reset progress</button></div>
+  </section>
+  <section class="bottom-banner"><span>🏆</span><div><h3>Every little step is a big win!</h3><p>Practise a little each day. Mistakes help your brain grow.</p></div><span>⭐ ⭐ ⭐</span></section>
+</main>
+<footer>✿ Namma Class · Designed for joyful learning · Tamil Nadu, India</footer>
+<script src="app.js"></script>
+</body></html>
