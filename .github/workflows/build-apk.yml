@@ -1,9 +1,11 @@
 name: Build Namma Class Android APK
+
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+workflow_dispatch:
+push:
+branches:
+- main
+
 jobs:
 build:
 runs-on: ubuntu-latest
