@@ -18,6 +18,7 @@
       <option value="10">10</option><option value="11">11</option><option value="12">12</option>
     </select>
   </label>
+  <a id="textbooksLink" class="secondary" href="books.html" style="text-decoration:none">📚 Textbooks</a>
   <button id="soundToggle" class="round" aria-label="Toggle read aloud">🔊</button>
 </header>
 <main>
@@ -26,6 +27,7 @@
       <h1>Big ideas.<br><span>Little steps.</span></h1>
       <p>Explore school subjects, listen to lessons and practise with fun quizzes every day.</p>
       <button class="primary" id="startLearning">Let's learn! →</button>
+      <a class="secondary" href="books.html" style="text-decoration:none;display:inline-block">📚 Read my textbooks</a>
     </div>
     <div class="hero-art" aria-label="Books and sunshine"><div class="sun">☀️</div><div class="books"><b>ABC</b><b>123</b><b>அ ஆ இ</b></div><div class="bubble">You can do it!</div></div>
   </section>
@@ -59,4 +61,12 @@
 </main>
 <footer>✿ Namma Class · Designed for joyful learning · Tamil Nadu, India</footer>
 <script src="app.js"></script>
+<script>
+  // Open the textbook shelf on the class the student has picked.
+  (function () {
+    var sel = document.getElementById('classSelect'), link = document.getElementById('textbooksLink');
+    function sync() { link.href = 'books.html?class=' + encodeURIComponent(sel.value); }
+    sel.addEventListener('change', sync); sync();
+  })();
+</script>
 </body></html>
