@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff7e8">
+  <title>Textbooks — Namma Class</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="books.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">✿</span><span>Namma<span class="accent">Class</span><small>LEARN • PLAY • GROW</small></span></a>
+  <a class="secondary home-link" href="index.html">← Home</a>
+</header>
+<main>
+  <section class="section">
+    <div class="section-heading">
+      <div><p class="eyebrow">SAMACHEER KALVI • <span id="yearLabel">2026-27</span></p><h2>📚 My textbooks</h2></div>
+      <span class="sticker">Classes 2–12 • Tamil & English medium</span>
+    </div>
+
+    <div class="pickers">
+      <div class="picker">
+        <p class="picker-label">1. Class</p>
+        <div class="chips" id="classChips" role="radiogroup" aria-label="Class"></div>
+      </div>
+      <div class="picker">
+        <p class="picker-label">2. Medium</p>
+        <div class="chips" id="mediumChips" role="radiogroup" aria-label="Medium"></div>
+      </div>
+      <div class="picker">
+        <p class="picker-label">3. Term</p>
+        <div class="chips" id="termChips" role="radiogroup" aria-label="Term"></div>
+      </div>
+    </div>
+
+    <div class="book-grid" id="bookGrid" aria-live="polite"></div>
+    <p class="book-note">Books open from the Tamil Nadu textbook files shared online. You need the internet to read or download them. Downloaded PDFs are saved to your phone's Downloads folder, so you can read them offline.</p>
+  </section>
+</main>
+
+<div class="reader" id="reader" hidden>
+  <div class="reader-bar">
+    <button class="round" id="closeReader" aria-label="Close book">✕</button>
+    <b id="readerTitle">Book</b>
+    <a class="primary" id="readerDownload" href="#" target="_blank" rel="noopener">⬇ Download</a>
+  </div>
+  <iframe id="readerFrame" title="Textbook" allow="autoplay"></iframe>
+</div>
+
+<footer>✿ Namma Class · Textbooks belong to the Government of Tamil Nadu</footer>
+<script src="books.js"></script>
+</body></html>
