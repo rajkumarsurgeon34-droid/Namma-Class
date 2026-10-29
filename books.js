@@ -99,7 +99,7 @@
   window.addEventListener('popstate', () => { if (!$('reader').hidden) closeReader(); });
 
   const params = new URLSearchParams(location.search);
-  state.cls = params.get('class') || store.get('class') || '2';
+  state.cls = params.get('class') || store.get('class') || '1';
   state.med = params.get('medium') || store.get('medium') || 'ta';
   state.term = store.get('term') || '1';
 
