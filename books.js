@@ -40,13 +40,24 @@
     if (!classes[state.cls]) state.cls = Object.keys(classes)[0];
     const meds = classes[state.cls];
     if (!meds[state.med]) state.med = meds.ta ? 'ta' : Object.keys(meds)[0];
-    const terms = meds[state.med];
+    let terms = meds[state.med];
+    // Classes 11–12: show Volume 1 / Volume 2 books in the same list as the full-year books.
+    let merged = false;
+    if (terms.F && (terms.V1 || terms.V2)) {
+      const all = {};
+      Object.keys(terms.F).forEach((s) => { all[s] = terms.F[s]; });
+      ['V1', 'V2'].forEach((v) => terms[v] && Object.keys(terms[v]).forEach((s) => {
+        all[s + ' – ' + TERM_NAMES[v]] = Object.assign({ base: s, vol: TERM_NAMES[v] }, terms[v][s]);
+      }));
+      const sorted = {}; Object.keys(all).sort((a, b) => a.localeCompare(b)).forEach((k) => { sorted[k] = all[k]; });
+      terms = { F: sorted }; merged = true;
+    }
     if (!terms[state.term]) state.term = Object.keys(terms)[0];
     store.set('class', state.cls); store.set('medium', state.med); store.set('term', state.term);
 
     chips($('classChips'), Object.keys(classes).map((c) => [c, c]), state.cls, (v) => { state.cls = v; render(); });
     chips($('mediumChips'), Object.keys(meds).map((m) => [m, MEDIUM_NAMES[m] || m]), state.med, (v) => { state.med = v; render(); });
-    chips($('termChips'), Object.keys(terms).map((t) => [t, TERM_NAMES[t] || t]), state.term, (v) => { state.term = v; render(); });
+    chips($('termChips'), Object.keys(terms).map((t) => [t, merged ? 'All books' : (TERM_NAMES[t] || t)]), state.term, (v) => { state.term = v; render(); });
 
     const grid = $('bookGrid'); grid.innerHTML = '';
     const books = terms[state.term];
@@ -55,9 +66,10 @@
   }
 
   function card(subject, files) {
-    const [icon, colour] = ICONS[subject] || [subject.slice(0, 2), '#ff914f'];
-    const title = state.med === 'ta' && TA[subject] ? TA[subject] : subject;
-    const sub = 'Class ' + state.cls + ' • ' + (TERM_NAMES[state.term] || state.term) + (title !== subject ? ' • ' + subject : '');
+    const base = files.base || subject;
+    const [icon, colour] = ICONS[base] || [base.slice(0, 2), '#ff914f'];
+    const title = (state.med === 'ta' && TA[base] ? TA[base] : base) + (files.vol ? ' – ' + files.vol : '');
+    const sub = 'Class ' + state.cls + ' • ' + (files.vol || TERM_NAMES[state.term] || state.term) + (title.indexOf(base) !== 0 ? ' • ' + base : '');
     const el = document.createElement('article');
     el.className = 'book';
     el.innerHTML = '<div class="book-head"><span class="book-icon"></span><div><h3></h3><small></small></div></div><div class="book-actions"></div>';
